@@ -25,16 +25,13 @@ exports.findById = function(id, cb) {
   });
 };
 
+exports.update = function(id, car, cb) {
 
+  db.run(`UPDATE cars SET make = '${car.make}', model = '${car.model}', year = ${car.year} WHERE ID = '${id}'`, cb);
+};
 
-
-
-
-// exports.findAll = function(cb) {
-//
-// // cb === function
-//   // function dbCarsCB(err, cars) {
-//   //   cb(err, cars)
-//   // }
-//   db.all('SELECT * FROM cars', cb);
-// };
+exports.removeById = function(id, cb) {
+  db.all(`DELETE FROM  Cars  WHERE ID = '${id}'`, function(err, cars) {
+    cb(err, cars);
+  });
+};
