@@ -21,8 +21,6 @@ app.get('/', (req, res) => {
 // });
 
 app.use('/api', require('./routes/api'));
-
-
 app.use('/clogs', require('./routes/clogs'));
 
 app.listen(PORT, err => {
